@@ -1,0 +1,56 @@
+﻿@using Cadastro.Model;
+@model List<PessoaModel>
+@{
+    ViewData["Title"] = "Cadastros";
+}
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-success" role="button" asp-controller="Cadastro" asp-action="Criar">Novo Cadastro</a>
+    </div>
+
+    <br />
+
+    <h1 class="display-4">Cadastros</h1>
+
+    <table class="table">
+
+        <!-- Criando as colunas da tabela -->
+        <thead>
+            <tr>
+                <th scope="col">Cód</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data de Nascimento</th>
+                <th scope="col">Valor da Renda</th>
+                <th scope="col">CPF</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- Preenchendo a tabela de cadastros-->
+            @if(Model != null && Model.Any())
+            {
+                foreach (PessoaModel pessoa in Model)
+                {
+                    <tr>
+                        <th scope="row">@pessoa.Id</th>
+                        <td>@pessoa.Nome</td>
+                        <td>@pessoa.DataNascimento.ToString("dd/MM/yyyy")</td>
+                        <td>@pessoa.ValorRenda</td>
+                        <td>@pessoa.CPF</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-id="@pessoa.Id" asp-asp-controller="Cadastro" asp-action="Alterar">Editar</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@pessoa.Id" asp-asp-controller="Cadastro" asp-action="Excluir">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+
+</div>

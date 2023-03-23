@@ -1,0 +1,38 @@
+﻿@using Cadastro.Model;
+@model PessoaModel
+@{
+    ViewData["Title"] = "Incluir Cadastro";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Incluir Cadastro</h1>
+
+</div>
+
+<form asp-controller="Cadastro" asp-action="Insert" method="post">
+    
+    <div class="form-group">
+        <label for="Nome">Nome</label>
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite seu nome...">
+    </div><br />
+
+    <div class="form-group">
+        <label for="DataNascimento">Data de Nascimento</label>
+        <input type="date" asp-for="DataNascimento" class="form-control">
+    </div><br />
+
+    <div class="form-group">
+        <label for="Renda">Renda</label>
+        <input type="number" asp-for="ValorRenda" class="form-control" placeholder="Digite sua Renda...">
+    </div><br />
+
+    <div class="form-group">
+        <label for="CPF">CPF</label>
+        <input type="text" asp-for="CPF" class="form-control" placeholder="Digite seu CPF...">
+    </div><br />
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a class="btn btn-secondary" asp-controller="Cadastro" asp-action="Index" role="button">Voltar</a>
+
+</form>
