@@ -1,0 +1,17 @@
+﻿@model TarefaModel
+@{
+    ViewData["Title"] = "Excluir Tarefa";
+}
+
+<div class="text-center">
+
+    <h3> Realmente deseja excluir a Tarefa (@Model.NomeTarefa)?</h3>
+
+</div>
+
+<div class="text-center">
+
+    <a class="btn btn-primary" asp-action="Index" asp-controller="Tarefa" role="button">Cancelar exclusão</a>
+    <a class="btn btn-danger" asp-action="Delete" asp-controller="Tarefa" asp-route-id="@Model.Id" role="button">Confirmar exclusão</a>
+
+</div>

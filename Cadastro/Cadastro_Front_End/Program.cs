@@ -1,6 +1,8 @@
 using Cadastro.Data;
 using Cadastro.Repository;
 using Cadastro.Repository.Interface;
+using Cadastro_Front_End.Repository;
+using Cadastro_Front_End.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cadastro_Front_End
@@ -19,6 +21,7 @@ namespace Cadastro_Front_End
                 options.UseSqlServer(connectionString));
 
             builder.Services.AddScoped<IPessoaRep, PessoaRep>();
+            builder.Services.AddScoped<ITarefaRep, TarefaRep>();
 
             var app = builder.Build();
 

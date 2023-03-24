@@ -1,0 +1,53 @@
+﻿@using Cadastro_Front_End.Models.ViewModels;
+@model List<TarefaViewModel>
+@{
+    ViewData["Title"] = "Tarefas";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Tarefas</h1>
+    <br />
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-success" role="button" asp-controller="Tarefa" asp-action="Criar">Nova Tarefa</a>
+    </div>
+
+    <table class="table">
+
+        <!-- Criando colunas -->
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Cód</th>
+                <th scope="col">Tarefa</th>
+                <th scope="col">Data de Conclusão</th>
+                <th scope="col">Pessoa Responsável</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <!-- Preenchendo a tabela de tarefas-->
+            @if (Model != null && Model.Any())
+            {
+                foreach (TarefaViewModel tarefa in Model)
+                {
+                    <tr>
+                        <th scope="row">@tarefa.Id</th>
+                        <td>@tarefa.NomeTarefa</td>
+                        <td>@tarefa.DataConclusao.ToString("dd/MM/yyyy")</td>
+                        <td>@tarefa.Pessoa</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-danger" asp-route-id="@tarefa.Id" asp-asp-controller="Tarefa" asp-action="Excluir">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+
+</div>

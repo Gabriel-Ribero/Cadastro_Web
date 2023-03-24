@@ -22,6 +22,7 @@ namespace Cadastro_Front_End.Controllers
             return View(listPessoas);
         }
 
+
         /* Página de Inclusão de cadastro */
         public IActionResult Criar()
         {

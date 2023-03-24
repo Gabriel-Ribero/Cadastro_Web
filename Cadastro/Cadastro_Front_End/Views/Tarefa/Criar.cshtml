@@ -1,0 +1,40 @@
+﻿@using Cadastro.Model;
+@model TarefaModel
+@{
+    ViewData["Title"] = "Incluir Tarefa";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Incluir Tarefa</h1>
+
+</div>
+
+<!-- Formulário -->
+<form asp-controller="Tarefa" asp-action="Insert" method="post">
+
+    <div class="form-group">
+        <label for="NomeTarefa">Nome da Tarefa</label>
+        <input type="text" asp-for="NomeTarefa" class="form-control" placeholder="Digite seu nome...">
+    </div><br />
+
+    <div class="form-group">
+        <label for="DataConclusao">Data de Conclusão</label>
+        <input type="date" asp-for="DataConclusao" class="form-control">
+    </div><br />
+
+    <div class="form-group">
+        <label for="IdPessoa">Pessoa Responsável</label>
+        <select asp-for="IdPessoa" id="Id">
+            @{ foreach (var item in (List<PessoaModel>)ViewBag.Pessoas)
+                {
+                    <option value="@item.Id">@item.Nome</option>
+                }}
+        </select> 
+    </div><br />
+    
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a class="btn btn-secondary" asp-controller="Tarefa" asp-action="Index" role="button">Voltar</a>
+
+</form>

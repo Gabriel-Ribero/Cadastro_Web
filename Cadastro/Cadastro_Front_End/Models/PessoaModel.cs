@@ -1,4 +1,6 @@
-﻿namespace Cadastro.Model
+﻿using Cadastro_Front_End.Models;
+
+namespace Cadastro.Model
 {
     public class PessoaModel
     {

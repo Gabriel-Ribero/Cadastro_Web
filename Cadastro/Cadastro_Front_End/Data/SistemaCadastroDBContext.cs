@@ -1,4 +1,5 @@
 ﻿using Cadastro.Model;
+using Cadastro_Front_End.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cadastro.Data
@@ -10,6 +11,8 @@ namespace Cadastro.Data
 
         /* Espelho da Tabela no Sql Server*/
         public DbSet<PessoaModel> Pessoa { get; set; }
+
+        public DbSet<TarefaModel> Tarefa { get; set; }
 
     }
 }
